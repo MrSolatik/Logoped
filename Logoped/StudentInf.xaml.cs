@@ -6,6 +6,8 @@ using Microsoft.Office.Interop.Word;
 using System;
 using System.Windows.Xps.Packaging;
 using System.Windows.Documents;
+using System.Xml.Linq;
+using Page = System.Windows.Controls.Page;
 
 namespace Logoped
 {
