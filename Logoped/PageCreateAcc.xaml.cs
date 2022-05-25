@@ -27,7 +27,7 @@ namespace Logoped
 
         private void EnterBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void RegistBtn_Click(object sender, RoutedEventArgs e)
