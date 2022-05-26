@@ -10,11 +10,14 @@
         <Border>
             <StackPanel>
                 <!--Элементы для работы с БД-->
-
                 <Frame Name="MainFrame" Height="390" VerticalAlignment="Bottom" NavigationUIVisibility="Hidden"
                ContentRendered="MainFrame_ContentRendered" Panel.ZIndex="-1"/>
             </StackPanel>
         </Border>
-        <Button Name="BtnNext" Content="Переход далее" Style="{StaticResource 52}" Click="BtnNext_Click" HorizontalAlignment="Left" Margin="10,394,0,10" />
+        
+        <Button Name="BtnNext" Content="Переход далее" Style="{StaticResource 52}" Click="BtnNext_Click"
+                HorizontalAlignment="Left" Margin="5" VerticalAlignment="Bottom"/>
+        <Button Name="BtnBack" Content="Вернуться" Style="{StaticResource 52}" Click="BtnBack_Click"
+                HorizontalAlignment="Right" Margin="5" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

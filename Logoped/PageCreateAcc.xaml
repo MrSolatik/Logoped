@@ -9,26 +9,24 @@
       Title="PageCreateAcc" Background="Transparent">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="200*"/>
-            <RowDefinition Height="40"/>
-        </Grid.RowDefinitions>
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <!--First border-->
-        <Border CornerRadius="20 0 0 0 " Margin="0,0,590,0">
-            <Border.Background>
-                <LinearGradientBrush>
-                    <GradientStop Color="#313355" Offset="0"/>
-                    <GradientStop Color="#3b2e58" Offset="1"/>
+            <Border CornerRadius="20 0 0 0 " Width="150">
+                <Border.Background>
+                    <LinearGradientBrush>
+                        <GradientStop Color="#313355" Offset="0"/>
+                        <GradientStop Color="#3b2e58" Offset="1"/>
                     </LinearGradientBrush>
-            </Border.Background>
-            <StackPanel>
-                <Label Content="Введите логин"/>
-                <TextBox x:Name="txblogin" Style="{StaticResource MWn}" Width="300" Height="30"/>
-            </StackPanel>
-        </Border>
+                </Border.Background>
+            </Border>
+
             <!--Second border-->
-        <Border Margin="210,0,0,0">
+            <Border Width="auto" Grid.Column="1" Grid.ColumnSpan="2">
                 <Border.Background>
                     <LinearGradientBrush >
                         <GradientStop Color="#3e3a65" Offset="0"/>
@@ -36,17 +34,21 @@
 
                     </LinearGradientBrush>
                 </Border.Background>
-            <StackPanel>
-                <Label Content="Введите пароль"/>
-                <PasswordBox Name="psbPassword" Width="300" Height="30"/>
-            </StackPanel>
-        </Border>
-            
+            </Border>
         </Grid>
-        <Button Name="EnterBtn" Background="Silver" Style="{StaticResource 12}" HorizontalAlignment="Left"
-                Width="120" Grid.Row="1" Margin="45,5,0,5" Content="Вход" Click="EnterBtn_Click"/>
 
-        <Button Name="RegistBtn" Background="#FF632C3A" Style="{StaticResource 12}" HorizontalAlignment="Right"
-                Width="120" Grid.Row="1" Margin="0 0 10 0" Content="Регистрация" Click="RegistBtn_Click"/>
+        <!--Controls-->
+        <StackPanel>
+            <TextBlock Text="Введите логин"/>
+            <TextBox x:Name="txblogin" Style="{StaticResource MWn}" Width="Auto" Height="30" Margin="5,69,656,351"/>
+        </StackPanel>
+        <Label Content="Введите пароль" Width="100" Height="30" Margin="5,104,695,316"/>
+        <PasswordBox x:Name="psbPassword" Height="30" Margin="5,139,656,281"/>
+
+        <Button Name="EnterBtn" Background="#253060" Style="{StaticResource 12}" HorizontalAlignment="Left"
+                Width="139" VerticalAlignment="Bottom" Margin="5,0,0,5" Content="Вход" Click="EnterBtn_Click"/>
+
+        <Button Name="RegistBtn" Background="#253066" Style="{StaticResource 12}" HorizontalAlignment="Right"
+                Width="120" VerticalAlignment="Bottom" Margin="5" Content="Регистрация" Click="RegistBtn_Click"/>
     </Grid>
 </Page>

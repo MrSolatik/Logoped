@@ -35,5 +35,10 @@ namespace Logoped
         {
             
         }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
