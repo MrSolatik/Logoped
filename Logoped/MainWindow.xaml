@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Logoped"
         mc:Ignorable="d"
         Height="450" Width="700" MinHeight="250" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None">
-    <Grid Background="#FF788285">
+    <Grid Background="Transparent">
         <Border>
             <StackPanel>
                 <!--Элементы для работы с БД-->
@@ -15,9 +15,9 @@
             </StackPanel>
         </Border>
         
-        <Button Name="BtnNext" Content="Переход далее" Style="{StaticResource 52}" Click="BtnNext_Click"
+        <Button Name="BtnNext" Content="Переход далее" Click="BtnNext_Click" Style="{StaticResource EditBtn}"
                 HorizontalAlignment="Left" Margin="5" VerticalAlignment="Bottom"/>
-        <Button Name="BtnBack" Content="Вернуться" Style="{StaticResource 52}" Click="BtnBack_Click"
+        <Button Name="BtnBack" Content="Вернуться" Click="BtnBack_Click" Style="{StaticResource EditBtn}"
                 HorizontalAlignment="Right" Margin="5" VerticalAlignment="Bottom"/>
     </Grid>
 </Window>

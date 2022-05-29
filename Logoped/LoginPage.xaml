@@ -24,14 +24,14 @@
             </Border.Background>
             <StackPanel>
                 <Label Content="Введите логин"/>
-                <TextBox Name="txblogin" Style="{StaticResource MWn}" Width="300" Height="30"/>
+                <TextBox Name="txblogin" Style="{StaticResource TextHint}" Width="300" Height="30"/>
                 <Label Content="Введите пароль"/>
-                <PasswordBox Name="psbPassword" Width="300" Height="30"/>
+                <PasswordBox Name="psbPassword" Width="300" Height="30" Style="{StaticResource psbPassword}"/>
             </StackPanel>
         </Border>
-        <Button Name="EnterBtn" Background="Silver" Style="{StaticResource 12}" HorizontalAlignment="Left"
-                Width="120" Grid.Row="1" Margin="10 0 0 0" Content="Вход" Click="EnterBtn_Click"/>
-        <Button Name="RegistBtn" Background="#FF632C3A" Style="{StaticResource 12}" HorizontalAlignment="Right"
+        <Button Name="EnterBtn" Background="Silver" Style="{StaticResource EditBtn}" HorizontalAlignment="Left"
+                Width="120" Grid.Row="1"  Content="Вход" Click="EnterBtn_Click"/>
+        <Button Name="RegistBtn" Background="#FF632C3A" Style="{StaticResource EditBtn}" HorizontalAlignment="Right"
                 Width="120" Grid.Row="1" Margin="0 0 10 0" Content="Регистрация" Click="RegistBtn_Click"/>
     </Grid>
 </Page>

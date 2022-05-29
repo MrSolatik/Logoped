@@ -13,10 +13,10 @@
         <DocumentViewer Name="documentViewer1" HorizontalAlignment="Left" Panel.ZIndex="-1" Width="795" Margin="0,0,0,40"/>
         <TextBox Height="344" HorizontalAlignment="Center" Margin="0,40,0,0"
                 Name="SelectedFileTextBox" VerticalAlignment="Top" Width="780" />
-        <Button Content="Поиск" Height="30" HorizontalAlignment="Left" Margin="0,415,680,0" Style="{StaticResource 52}"
+        <Button Content="Поиск" Height="30" HorizontalAlignment="Left" Margin="0,415,680,0" Style="{StaticResource EditBtn}"
                 Name="BrowseButton" VerticalAlignment="Top" Width="120"  Click="BrowseButton_Click"/>
         <!--Конец-->
-        <Button Name="SaveBtn" Content="Сохранить данные" Style="{StaticResource 52}" Background="#FF37649B"
+        <Button Name="SaveBtn" Content="Сохранить данные" Style="{StaticResource EditBtn}" Background="#FF37649B"
                 Click="SaveBtn_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 5 5" Width="130"/>
     </Grid>
 </Page>

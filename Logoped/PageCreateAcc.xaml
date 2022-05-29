@@ -11,12 +11,11 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!--First border-->
-            <Border CornerRadius="20 0 0 0 " Width="150">
+            <Border CornerRadius="20 0 0 0 " Grid.Column="0">
                 <Border.Background>
                     <LinearGradientBrush>
                         <GradientStop Color="#313355" Offset="0"/>
@@ -31,24 +30,22 @@
                     <LinearGradientBrush >
                         <GradientStop Color="#3e3a65" Offset="0"/>
                         <GradientStop Color="#473765" Offset="1"/>
-
                     </LinearGradientBrush>
                 </Border.Background>
             </Border>
+
+            <!--Controls-->
+            <StackPanel VerticalAlignment="Top">
+                <TextBlock Text="Введите логин" Style="{StaticResource TextBlock1}"/>
+                <TextBlock Text="Введите ваш логин и пароль" Style="{StaticResource ResourceKey=standartText}"/>
+                <Button x:Name="txblogin" Content="Войти" Width="180" Height="54" Style="{StaticResource EditBtn}"/>
+            </StackPanel>
+            <PasswordBox x:Name="psbPassword" Height="30" Style="{StaticResource psbPassword}"/>
         </Grid>
+        <Button Name="EnterBtn" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10"
+                Width="120" Height="54" Content="Вход" Click="EnterBtn_Click" Style="{StaticResource EditBtn}"/>
 
-        <!--Controls-->
-        <StackPanel>
-            <TextBlock Text="Введите логин"/>
-            <TextBox x:Name="txblogin" Style="{StaticResource MWn}" Width="Auto" Height="30" Margin="5,69,656,351"/>
-        </StackPanel>
-        <Label Content="Введите пароль" Width="100" Height="30" Margin="5,104,695,316"/>
-        <PasswordBox x:Name="psbPassword" Height="30" Margin="5,139,656,281"/>
-
-        <Button Name="EnterBtn" Background="#253060" Style="{StaticResource 12}" HorizontalAlignment="Left"
-                Width="139" VerticalAlignment="Bottom" Margin="5,0,0,5" Content="Вход" Click="EnterBtn_Click"/>
-
-        <Button Name="RegistBtn" Background="#253066" Style="{StaticResource 12}" HorizontalAlignment="Right"
-                Width="120" VerticalAlignment="Bottom" Margin="5" Content="Регистрация" Click="RegistBtn_Click"/>
+        <Button Name="RegistBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10"
+                Width="120" Height="54" Content="Регистрация" Click="RegistBtn_Click" Style="{StaticResource EditBtn}"/>
     </Grid>
 </Page>

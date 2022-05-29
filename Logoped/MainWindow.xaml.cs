@@ -25,6 +25,7 @@ namespace Logoped
 
         private void MainFrame_ContentRendered(object sender, EventArgs e)
         {
+            //дописать момент с возвращением
             if (MainFrame.CanGoBack)
             {
                 Visibility = Visibility.Visible;
@@ -38,7 +39,7 @@ namespace Logoped
 
         private void BtnBack_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

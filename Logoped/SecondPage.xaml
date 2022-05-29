@@ -20,9 +20,9 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Style="{StaticResource MWn}" Width="225" MaxWidth="600" HorizontalAlignment="Center"/>
-        <Button Style="{StaticResource 12}" Grid.Row="1" VerticalAlignment="Top" Content="Добавить"/>
-        <Button Name="PrinterButn" Style="{StaticResource 12}" Grid.Row="1" VerticalAlignment="Bottom" Content="Печать" Click="PrinterButn_Click"/>
+        <TextBox Width="225" MaxWidth="600" HorizontalAlignment="Center"/>
+        <Button Grid.Row="1" VerticalAlignment="Top" Content="Добавить" Style="{StaticResource EditBtn}"/>
+        <Button Name="PrinterButn" Grid.Row="1" VerticalAlignment="Bottom" Content="Печать" Click="PrinterButn_Click" Style="{StaticResource EditBtn}"/>
 
     </Grid>
 </Page>
