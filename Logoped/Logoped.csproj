@@ -70,24 +70,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Admin.cs">
-      <DependentUpon>ClassModel1.tt</DependentUpon>
-    </Compile>
     <Compile Include="AppConnect.cs" />
-    <Compile Include="ClassModel1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClassModel1.Context.tt</DependentUpon>
+    <Compile Include="DB\Admin.cs">
+      <DependentUpon>LogopodDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClassModel1.cs">
+    <Compile Include="DB\LogopodDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClassModel1.tt</DependentUpon>
+      <DependentUpon>LogopodDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ClassModel1.Designer.cs">
+    <Compile Include="DB\LogopodDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ClassModel1.edmx</DependentUpon>
+      <DependentUpon>LogopodDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\LogopodDB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LogopodDB.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Raspisanie.cs">
+      <DependentUpon>LogopodDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\RechevayKarta.cs">
+      <DependentUpon>LogopodDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Role.cs">
+      <DependentUpon>LogopodDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Student.cs">
+      <DependentUpon>LogopodDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\sysdiagram.cs">
+      <DependentUpon>LogopodDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\Teacher.cs">
+      <DependentUpon>LogopodDB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DB\User.cs">
+      <DependentUpon>LogopodDB.tt</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>
@@ -95,26 +116,11 @@
     <Compile Include="PageCreateAcc.xaml.cs">
       <DependentUpon>PageCreateAcc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Role.cs">
-      <DependentUpon>ClassModel1.tt</DependentUpon>
-    </Compile>
     <Compile Include="SecondPage.xaml.cs">
       <DependentUpon>SecondPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Student.cs">
-      <DependentUpon>ClassModel1.tt</DependentUpon>
-    </Compile>
     <Compile Include="StudentInf.xaml.cs">
       <DependentUpon>StudentInf.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>ClassModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Teacher.cs">
-      <DependentUpon>ClassModel1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>ClassModel1.tt</DependentUpon>
     </Compile>
     <Page Include="LoginPage.xaml">
       <SubType>Designer</SubType>
@@ -164,12 +170,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ClassModel1.edmx">
+    <EntityDeploy Include="DB\LogopodDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ClassModel1.Designer.cs</LastGenOutput>
+      <LastGenOutput>LogopodDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ClassModel1.edmx.diagram">
-      <DependentUpon>ClassModel1.edmx</DependentUpon>
+    <None Include="DB\LogopodDB.edmx.diagram">
+      <DependentUpon>LogopodDB.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -181,22 +187,24 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ClassModel1.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ClassModel1.Context.cs</LastGenOutput>
-      <DependentUpon>ClassModel1.edmx</DependentUpon>
-    </Content>
-    <Content Include="ClassModel1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ClassModel1.edmx</DependentUpon>
-      <LastGenOutput>ClassModel1.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\3PyvBYWgpi0.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB\LogopodDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogopodDB.edmx</DependentUpon>
+      <LastGenOutput>LogopodDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\LogopodDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LogopodDB.edmx</DependentUpon>
+      <LastGenOutput>LogopodDB.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

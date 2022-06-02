@@ -25,14 +25,14 @@ namespace Logoped
             InitializeComponent();
         }
 
-        private void EnterBtn_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void RegistBtn_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void BtnBack_Click(object sender, RoutedEventArgs e)
+        {
+            FrameClass.framsus.GoBack();
         }
     }
 }

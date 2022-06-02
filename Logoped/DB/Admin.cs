@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logoped
+namespace Logoped.DB
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace Logoped
         public string Name { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
-        public Nullable<int> IdRole { get; set; }
+        public int IdRole { get; set; }
     
         public virtual Role Role { get; set; }
     }

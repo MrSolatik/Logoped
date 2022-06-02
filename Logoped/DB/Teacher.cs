@@ -7,29 +7,33 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logoped
+namespace Logoped.DB
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Role
+    public partial class Teacher
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Role()
+        public Teacher()
         {
-            this.Admins = new HashSet<Admin>();
-            this.Teachers = new HashSet<Teacher>();
-            this.Users = new HashSet<User>();
+            this.Raspisanies = new HashSet<Raspisanie>();
+            this.RechevayKartas = new HashSet<RechevayKarta>();
+            this.Students = new HashSet<Student>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public int IdRole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Admin> Admins { get; set; }
+        public virtual ICollection<Raspisanie> Raspisanies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Teacher> Teachers { get; set; }
+        public virtual ICollection<RechevayKarta> RechevayKartas { get; set; }
+        public virtual Role Role { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
     }
 }

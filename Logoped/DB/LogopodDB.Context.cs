@@ -7,18 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logoped
+namespace Logoped.DB
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LogopedCabEntities : DbContext
+    public partial class LogopedCabEntities1 : DbContext
     {
-        public static LogopedCabEntities _context;  //присвоение значения контекста для будущего взаимодействия с базой данных
-
-        public LogopedCabEntities()
-            : base("name=LogopedCabEntities")
+        public static LogopedCabEntities1 _context;  //присвоение значения контекста для будущего взаимодействия с базой данных
+        public LogopedCabEntities1()
+            : base("name=LogopedCabEntities1")
         {
         }
     
@@ -28,6 +27,8 @@ namespace Logoped
         }
     
         public virtual DbSet<Admin> Admins { get; set; }
+        public virtual DbSet<Raspisanie> Raspisanies { get; set; }
+        public virtual DbSet<RechevayKarta> RechevayKartas { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<Student> Students { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }

@@ -30,6 +30,10 @@ namespace Logoped
             {
                 Visibility = Visibility.Visible;
             }
+            else
+            {
+                Visibility = Visibility.Hidden;
+            }
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)

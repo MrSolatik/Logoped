@@ -19,33 +19,46 @@ namespace Logoped
         {
             try
             {
-                var userObj = AppConnect.model0db.Users.FirstOrDefault(x=>x.Login==txblogin.Text && x.Password ==psbPassword.Password);
-                if(userObj != null)
+                var userObj = AppConnect.model0db.Users.FirstOrDefault(x => x.Login == txblogin.Text && x.Password == psbPassword.Password);
+                //генерация события для PasswordBox и TextBox с обращением к содержимому базы данных
+                if (userObj == null)
                 {
-                    MessageBox.Show("Unknown user!", "Error!", MessageBoxButton.OK, MessageBoxImage.Error); 
+                    MessageBox.Show("Неверно указанный пользователь!", "Ошибка доступа",        //сообщение выдаваемое при неверно указаном пользователе
+                        MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {
-                    switch(userObj.IdRole)
+                    switch (userObj.IdRole)             //переключение между профилями
                     {
-                        case 0: MessageBox.Show("Welcome Administrator!" + userObj.Name + "!", "Notification", MessageBoxButton.OK, MessageBoxImage.Information);
+                        case 1:
+                            MessageBox.Show("Добро пожаловать, Администратор " + userObj.Name + "!",
+                         "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
-                        case 1:MessageBox.Show("Добро пожаловать " + userObj.Name + "!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                        case 2:
+                            MessageBox.Show("Добро пожаловать, ученик " + userObj.Name + "!",
+                         "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                             break;
-                        default: MessageBox.Show("Данные не обнаружены!","Уведомление",MessageBoxButton.OK,MessageBoxImage.Warning);
-                                break;
+                        case 3:
+                            MessageBox.Show("Здравствуйте, " + userObj.Name + "!",
+                         "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                            break;
+                        default:
+                            MessageBox.Show("Ошибка! Данные не обнаружены!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                            break;
                     }
                 }
             }
-            catch(Exception Ex)
+
+            catch (Exception ex)        //при невверно указаном профиле ошибка 
             {
-                MessageBox.Show("Ошибка " + Ex.Message.ToString() + " Критическая работа приложения", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Ошибка " + ex.Message.ToString() + "Критическая работа приложения!",
+                    "Уведомление", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 
         private void RegistBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameClass.framsus.Navigate(new PageCreateAcc());
         }
     }
 }

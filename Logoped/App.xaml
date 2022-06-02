@@ -21,7 +21,7 @@
         <Style TargetType="Button" x:Key="EditBtn">
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Width" Value="150"/>
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Background" Value="DarkViolet"/>
             <Setter Property="Foreground" Value="#fdfefe"/>
             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
             <Setter Property="Template">
@@ -51,11 +51,30 @@
         </Style>
 
         <Style TargetType="TextBox" x:Key="TextHint">
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Width" Value="200"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Grid.Column" Value="1"/>
             <Setter Property="Panel.ZIndex" Value="1"/>
             <Setter Property="Margin" Value="10 0 0 0"/>
             <Setter Property="Foreground" Value="#acb0af"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="LoginBtn">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="#FFFAFAFA"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderThickness="1" BorderBrush="White" Padding="10">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
     </Application.Resources>
 </Application>

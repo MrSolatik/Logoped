@@ -13,13 +13,43 @@
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
-          <Property Name="IdRole" Type="int" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Raspisanie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DayOfWeek" Type="nvarchar" MaxLength="20" />
+          <Property Name="Zagruzka" Type="int" Nullable="false" />
+          <Property Name="ThemeLesson" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StudentList" Type="text" />
+          <Property Name="Group" Type="nvarchar" MaxLength="50" />
+          <Property Name="Class" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IDTeacher" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RechevayKarta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IDTeacher" Type="int" Nullable="false" />
+          <Property Name="Zabolevanie" Type="nvarchar(max)" />
+          <Property Name="MetodLecheniy" Type="nvarchar(max)" />
+          <Property Name="FIO" Type="nvarchar(max)" />
+          <Property Name="Class" Type="text" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="100" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DateIncoming" Type="date" />
+          <Property Name="Sluh" Type="nvarchar" MaxLength="100" />
+          <Property Name="Zrenie" Type="nvarchar" MaxLength="100" />
+          <Property Name="SocSreda" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Students">
@@ -32,7 +62,7 @@
           <Property Name="Parents" Type="bit" />
           <Property Name="Phone" Type="nvarchar" MaxLength="20" />
           <Property Name="SredniyBal" Type="float" />
-          <Property Name="IdTeacher" Type="int" />
+          <Property Name="IdTeacher" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -52,7 +82,7 @@
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
-          <Property Name="IdRole" Type="int" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -62,10 +92,10 @@
           <Property Name="Name" Type="nvarchar" MaxLength="100" />
           <Property Name="Login" Type="nvarchar" MaxLength="50" />
           <Property Name="Password" Type="nvarchar" MaxLength="50" />
-          <Property Name="IdRole" Type="int" />
+          <Property Name="IdRole" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_Admin_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -76,8 +106,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Raspisanie_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="IDTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RechevayKarta_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="RechevayKarta" Type="Self.RechevayKarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RechevayKarta">
+              <PropertyRef Name="IDTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Students_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
           <End Role="Students" Type="Self.Students" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Teacher">
@@ -89,7 +143,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Teacher_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -101,7 +155,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -114,6 +168,8 @@
         </Association>
         <EntityContainer Name="Хранилище LogopedCabModelContainer">
           <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Raspisanie" EntityType="Self.Raspisanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RechevayKarta" EntityType="Self.RechevayKarta" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
@@ -122,6 +178,14 @@
           <AssociationSet Name="FK_Admin_Role" Association="Self.FK_Admin_Role">
             <End Role="Role" EntitySet="Role" />
             <End Role="Admin" EntitySet="Admin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Teacher" Association="Self.FK_Raspisanie_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RechevayKarta_Teacher" Association="Self.FK_RechevayKarta_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="RechevayKarta" EntitySet="RechevayKarta" />
           </AssociationSet>
           <AssociationSet Name="FK_Students_Teacher" Association="Self.FK_Students_Teacher">
             <End Role="Teacher" EntitySet="Teacher" />
@@ -149,14 +213,46 @@
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IdRole" Type="Int32" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Admin_Role" FromRole="Admin" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Raspisanie">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DayOfWeek" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Zagruzka" Type="Int32" Nullable="false" />
+          <Property Name="ThemeLesson" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StudentList" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Group" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IDTeacher" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK_Raspisanie_Teacher" FromRole="Raspisanie" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="RechevayKarta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDTeacher" Type="Int32" Nullable="false" />
+          <Property Name="Zabolevanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="MetodLecheniy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FIO" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DateIncoming" Type="DateTime" Precision="0" />
+          <Property Name="Sluh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Zrenie" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SocSreda" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK_RechevayKarta_Teacher" FromRole="RechevayKarta" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Admins" Relationship="Self.FK_Admin_Role" FromRole="Role" ToRole="Admin" />
           <NavigationProperty Name="Teachers" Relationship="Self.FK_Teacher_Role" FromRole="Role" ToRole="Teacher" />
@@ -172,7 +268,7 @@
           <Property Name="Parents" Type="Boolean" />
           <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="SredniyBal" Type="Double" />
-          <Property Name="IdTeacher" Type="Int32" />
+          <Property Name="IdTeacher" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Teacher" Relationship="Self.FK_Students_Teacher" FromRole="Students" ToRole="Teacher" />
         </EntityType>
         <EntityType Name="sysdiagram">
@@ -193,7 +289,9 @@
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IdRole" Type="Int32" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Raspisanies" Relationship="Self.FK_Raspisanie_Teacher" FromRole="Teacher" ToRole="Raspisanie" />
+          <NavigationProperty Name="RechevayKartas" Relationship="Self.FK_RechevayKarta_Teacher" FromRole="Teacher" ToRole="RechevayKarta" />
           <NavigationProperty Name="Role" Relationship="Self.FK_Teacher_Role" FromRole="Teacher" ToRole="Role" />
           <NavigationProperty Name="Students" Relationship="Self.FK_Students_Teacher" FromRole="Teacher" ToRole="Students" />
         </EntityType>
@@ -205,11 +303,11 @@
           <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="IdRole" Type="Int32" />
+          <Property Name="IdRole" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Admin_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -220,8 +318,32 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Raspisanie_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="IDTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RechevayKarta_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="RechevayKarta" Type="Self.RechevayKarta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RechevayKarta">
+              <PropertyRef Name="IDTeacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Teacher_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -233,7 +355,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Role">
-          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
           <End Role="User" Type="Self.User" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Role">
@@ -245,7 +367,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Students_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
           <End Role="Students" Type="Self.Student" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Teacher">
@@ -256,8 +378,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="LogopedCabEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LogopedCabEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Raspisanies" EntityType="Self.Raspisanie" />
+          <EntitySet Name="RechevayKartas" EntityType="Self.RechevayKarta" />
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="Students" EntityType="Self.Student" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -266,6 +390,14 @@
           <AssociationSet Name="FK_Admin_Role" Association="Self.FK_Admin_Role">
             <End Role="Role" EntitySet="Roles" />
             <End Role="Admin" EntitySet="Admins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Teacher" Association="Self.FK_Raspisanie_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Raspisanie" EntitySet="Raspisanies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RechevayKarta_Teacher" Association="Self.FK_RechevayKarta_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="RechevayKarta" EntitySet="RechevayKartas" />
           </AssociationSet>
           <AssociationSet Name="FK_Teacher_Role" Association="Self.FK_Teacher_Role">
             <End Role="Role" EntitySet="Roles" />
@@ -285,7 +417,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище LogopedCabModelContainer" CdmEntityContainer="LogopedCabEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище LogopedCabModelContainer" CdmEntityContainer="LogopedCabEntities1">
           <EntitySetMapping Name="Admins">
             <EntityTypeMapping TypeName="LogopedCabModel.Admin">
               <MappingFragment StoreEntitySet="Admin">
@@ -294,6 +426,38 @@
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Raspisanies">
+            <EntityTypeMapping TypeName="LogopedCabModel.Raspisanie">
+              <MappingFragment StoreEntitySet="Raspisanie">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DayOfWeek" ColumnName="DayOfWeek" />
+                <ScalarProperty Name="Zagruzka" ColumnName="Zagruzka" />
+                <ScalarProperty Name="ThemeLesson" ColumnName="ThemeLesson" />
+                <ScalarProperty Name="StudentList" ColumnName="StudentList" />
+                <ScalarProperty Name="Group" ColumnName="Group" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="IDTeacher" ColumnName="IDTeacher" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RechevayKartas">
+            <EntityTypeMapping TypeName="LogopedCabModel.RechevayKarta">
+              <MappingFragment StoreEntitySet="RechevayKarta">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDTeacher" ColumnName="IDTeacher" />
+                <ScalarProperty Name="Zabolevanie" ColumnName="Zabolevanie" />
+                <ScalarProperty Name="MetodLecheniy" ColumnName="MetodLecheniy" />
+                <ScalarProperty Name="FIO" ColumnName="FIO" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DateIncoming" ColumnName="DateIncoming" />
+                <ScalarProperty Name="Sluh" ColumnName="Sluh" />
+                <ScalarProperty Name="Zrenie" ColumnName="Zrenie" />
+                <ScalarProperty Name="SocSreda" ColumnName="SocSreda" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

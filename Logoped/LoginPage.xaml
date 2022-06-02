@@ -5,16 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Logoped"
       mc:Ignorable="d" 
-      d:DesignHeight="250" d:DesignWidth="350"
+      d:DesignHeight="450" d:DesignWidth="700"
       Title="LoginPage">
-
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="200*"/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="113"/>
+            <RowDefinition Height="113"/>
+            <RowDefinition Height="160"/>
+            <RowDefinition Height="65"/>
         </Grid.RowDefinitions>
-        
-        <Border CornerRadius="20" BorderBrush="#FF121B25" BorderThickness="5 5 0 0" Grid.RowSpan="2">
+
+        <Border CornerRadius="20 0 0 0" BorderBrush="Transparent"  Grid.RowSpan="4" Panel.ZIndex="-1">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#FF3F1D29" Offset="0.6"/>
@@ -22,16 +23,20 @@
                     <GradientStop Color="#FF927275"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <StackPanel>
-                <Label Content="Введите логин"/>
-                <TextBox Name="txblogin" Style="{StaticResource TextHint}" Width="300" Height="30"/>
-                <Label Content="Введите пароль"/>
-                <PasswordBox Name="psbPassword" Width="300" Height="30" Style="{StaticResource psbPassword}"/>
-            </StackPanel>
         </Border>
-        <Button Name="EnterBtn" Background="Silver" Style="{StaticResource EditBtn}" HorizontalAlignment="Left"
-                Width="120" Grid.Row="1"  Content="Вход" Click="EnterBtn_Click"/>
-        <Button Name="RegistBtn" Background="#FF632C3A" Style="{StaticResource EditBtn}" HorizontalAlignment="Right"
-                Width="120" Grid.Row="1" Margin="0 0 10 0" Content="Регистрация" Click="RegistBtn_Click"/>
+
+        <StackPanel Orientation="Horizontal" Width="450" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Label Content="Введите логин" FontSize="20"/>
+            <TextBox Name="txblogin" Style="{StaticResource TextHint}" Width="300" Height="40"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Width="450" HorizontalAlignment="Center" VerticalAlignment="Bottom" Grid.Row="1">
+            <Label Content="Введите пароль" FontSize="20"/>
+            <PasswordBox Name="psbPassword" Width="300" Height="40" Style="{StaticResource psbPassword}"/>
+        </StackPanel>
+
+        <Button Name="EnterBtn" Style="{StaticResource LoginBtn}" HorizontalAlignment="Left"
+                Grid.Row="3" Content="Вход" Click="EnterBtn_Click" Width="150" Margin="10 0 0 10"/>
+        <Button Name="RegistBtn" Style="{StaticResource LoginBtn}" HorizontalAlignment="Right"
+                Grid.Row="3" Content="Регистрация" Click="RegistBtn_Click" Width="150" Margin="0 0 10 10"/>
     </Grid>
 </Page>

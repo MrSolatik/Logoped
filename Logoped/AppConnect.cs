@@ -1,7 +1,9 @@
-﻿namespace Logoped
+﻿using Logoped.DB;
+
+namespace Logoped
 {
     internal class AppConnect
     {
-        public static LogopedCabEntities model0db;
+        public static LogopedCabEntities1 model0db;
     }
 }
