@@ -7,21 +7,25 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logoped.DB
+namespace Logoped
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Raspisanie
+    public partial class RechevayKarta
     {
         public int ID { get; set; }
-        public string DayOfWeek { get; set; }
-        public int Zagruzka { get; set; }
-        public string ThemeLesson { get; set; }
-        public string StudentList { get; set; }
-        public string Group { get; set; }
-        public string Class { get; set; }
         public int IDTeacher { get; set; }
+        public string Zabolevanie { get; set; }
+        public string MetodLecheniy { get; set; }
+        public string FIO { get; set; }
+        public string Class { get; set; }
+        public string Adress { get; set; }
+        public Nullable<int> Age { get; set; }
+        public Nullable<System.DateTime> DateIncoming { get; set; }
+        public string Sluh { get; set; }
+        public string Zrenie { get; set; }
+        public string SocSreda { get; set; }
     
         public virtual Teacher Teacher { get; set; }
     }

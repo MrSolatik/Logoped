@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logoped.DB
+namespace Logoped
 {
     using System;
     using System.Data.Entity;
@@ -15,7 +15,6 @@ namespace Logoped.DB
     
     public partial class LogopedCabEntities1 : DbContext
     {
-        public static LogopedCabEntities1 _context;  //присвоение значения контекста для будущего взаимодействия с базой данных
         public LogopedCabEntities1()
             : base("name=LogopedCabEntities1")
         {

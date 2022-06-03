@@ -12,7 +12,7 @@ namespace Logoped
         {
             InitializeComponent();
 
-            AppConnect.model0db = new LogopedCabEntities();
+            AppConnect.model0db = new LogopedCabEntities1();
             FrameClass.framsus = MainFrame;
 
             MainFrame.Navigate(new LoginPage());

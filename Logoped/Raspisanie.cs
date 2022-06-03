@@ -7,17 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logoped.DB
+namespace Logoped
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Raspisanie
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int ID { get; set; }
+        public string DayOfWeek { get; set; }
+        public int Zagruzka { get; set; }
+        public string ThemeLesson { get; set; }
+        public string StudentList { get; set; }
+        public string Group { get; set; }
+        public string Class { get; set; }
+        public int IDTeacher { get; set; }
+    
+        public virtual Teacher Teacher { get; set; }
     }
 }

@@ -7,21 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logoped.DB
+namespace Logoped
 {
     using System;
     using System.Collections.Generic;
     
-    public partial class Student
+    public partial class Admin
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Class { get; set; }
-        public Nullable<bool> Parents { get; set; }
-        public string Phone { get; set; }
-        public Nullable<double> SredniyBal { get; set; }
-        public int IdTeacher { get; set; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public int IdRole { get; set; }
     
-        public virtual Teacher Teacher { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Logoped.DB
+namespace Logoped
 {
     using System;
     using System.Collections.Generic;
