@@ -18,8 +18,11 @@
         <!--Отображение списков учащихся-->
         <DataGrid Name="RechevayKarta">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Имя" Width="175"/>
-                <DataGridTextColumn Header="" Width="175"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FIO}" Width="200"/>
+                <DataGridTextColumn Header="Класс" Binding="{Binding Calss}" Width="60"/>
+                <DataGridTextColumn Header="Группа" Binding="{Binding Group}" Width="60"/>
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Age}" Width="100"/>
+                <DataGridTextColumn Header="Дата поступления" Binding="{Binding DateIncoming}" Width="120"/>
             </DataGrid.Columns>
         </DataGrid>
         <!--Конец-->

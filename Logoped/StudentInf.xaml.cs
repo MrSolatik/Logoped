@@ -1,12 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.IO;
-using Microsoft.Win32;
-using Microsoft.Office.Interop.Word;
+﻿using Microsoft.Office.Interop.Word;
 using System;
+using System.Windows;
 using System.Windows.Xps.Packaging;
-using System.Windows.Documents;
-using System.Xml.Linq;
 using Page = System.Windows.Controls.Page;
 
 namespace Logoped
