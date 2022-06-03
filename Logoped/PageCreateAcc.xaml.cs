@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace Logoped
 {
-    /// <summary>
-    /// Логика взаимодействия для PageCreateAcc.xaml
-    /// </summary>
     public partial class PageCreateAcc : Page
     {
         public PageCreateAcc()

@@ -47,6 +47,7 @@ namespace Logoped
                             break;
                     }
                 }
+                FrameClass.framsus.Navigate(new MainWindow()); //переход на главную форму с Базой данных
             }
 
             catch (Exception ex)        //при невверно указаном профиле ошибка 

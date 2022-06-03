@@ -18,9 +18,8 @@
         <Border CornerRadius="20 0 0 0" BorderBrush="Transparent"  Grid.RowSpan="4" Panel.ZIndex="-1">
             <Border.Background>
                 <LinearGradientBrush>
-                    <GradientStop Color="#FF3F1D29" Offset="0.6"/>
-                    <GradientStop Color="#FF725B62" Offset="0.2"/>
-                    <GradientStop Color="#FF927275"/>
+                    <GradientStop Color="#3e3a65" Offset="0"/>
+                    <GradientStop Color="#473765" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
         </Border>

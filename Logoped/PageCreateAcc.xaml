@@ -39,7 +39,7 @@
                 <TextBlock Text="Введите логин" Style="{StaticResource TextBlock1}"/>
                 <TextBlock Text="Введите ваш логин и пароль" Style="{StaticResource ResourceKey=standartText}"/>
             </StackPanel>
-            <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Height="220" Width="300">
+            <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Column="1" Height="240" Width="300" Margin="0 0 0 150">
                 <TextBlock Text="Введите имя" Style="{StaticResource standartText}" Height="20" FontSize="20"/>
                 <TextBox Style="{StaticResource TextHint}" Width="270"/>
                 <Label Height="10"/>
@@ -47,6 +47,9 @@
                 <TextBox Style="{StaticResource TextHint}" Width="270"/>
                 <Label Height="10"/>
                 <TextBlock Text="Введите пароль" Style="{StaticResource standartText}" Height="20" FontSize="20"/>
+                <PasswordBox Style="{StaticResource psbPassword}" Height="30" Width="270"/>
+                <Label Height="10"/>
+                <TextBlock Text="Подтвердите пароль" Style="{StaticResource standartText}" FontSize="20" Height="20"/>
                 <PasswordBox Style="{StaticResource psbPassword}" Height="30" Width="270"/>
             </StackPanel>
         </Grid>

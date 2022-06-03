@@ -20,7 +20,12 @@ namespace Logoped.DB
             : base("name=LogopedCabEntities1")
         {
         }
-    
+    public static LogopedCabEntities1 GetContext()
+        {
+            if (_context == null)
+                _context = new LogopedCabEntities1();
+                return _context;
+        }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

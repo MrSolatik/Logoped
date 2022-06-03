@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Logoped"
         mc:Ignorable="d"
-        Height="450" Width="700" MinHeight="250" WindowStartupLocation="CenterScreen" AllowsTransparency="True" WindowStyle="None" Icon="/Resources/3PyvBYWgpi0.jpg">
-    <Grid Background="Transparent">
+        Height="450" Width="700" MinHeight="250" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
         <Border>
             <StackPanel>
                 <!--Элементы для работы с БД-->
@@ -16,10 +16,21 @@
         </Border>
         
         <!--Отображение списков учащихся-->
-        <DataGrid Name="RechevayKarta">
+        <DataGrid Name="RechevayKarta" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Имя" Width="175"/>
-                <DataGridTextColumn Header="" Width="175"/>
+                <DataGridTextColumn Header="Имя" Binding="{Binding FIO}" Width="200"/>
+                <DataGridTextColumn Header="Возраст" Binding="{Binding Age}" Width="60"/>
+                <DataGridTextColumn Header="Класс" Binding="{Binding Class}" Width="60"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Adress}" Width="*"/>
+                <DataGridTextColumn Header="Дата поступления" Binding="{Binding DateIncoming}" Width="*"/>
+                <!--Кнопка редактирования-->
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="BtnEdit" Style="{StaticResource EditBtn}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
         <!--Конец-->
