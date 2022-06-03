@@ -14,22 +14,19 @@
                ContentRendered="MainFrame_ContentRendered" Panel.ZIndex="-1"/>
             </StackPanel>
         </Border>
-        
+
         <!--Отображение списков учащихся-->
-        <DataGrid Name="RechevayKarta">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Имя" Binding="{Binding FIO}" Width="200"/>
-                <DataGridTextColumn Header="Класс" Binding="{Binding Calss}" Width="60"/>
-                <DataGridTextColumn Header="Группа" Binding="{Binding Group}" Width="60"/>
-                <DataGridTextColumn Header="Возраст" Binding="{Binding Age}" Width="100"/>
-                <DataGridTextColumn Header="Дата поступления" Binding="{Binding DateIncoming}" Width="120"/>
-            </DataGrid.Columns>
-        </DataGrid>
+
         <!--Конец-->
-        
-        <Button Name="BtnNext" Content="Переход далее" Click="BtnNext_Click" Style="{StaticResource EditBtn}"
-                HorizontalAlignment="Left" Margin="5" VerticalAlignment="Bottom"/>
-        <Button Name="BtnBack" Content="Вернуться" Click="BtnBack_Click" Style="{StaticResource EditBtn}"
-                HorizontalAlignment="Right" Margin="5" VerticalAlignment="Bottom"/>
+        <ComboBox Height="24" VerticalAlignment="Bottom" Margin="541,0,1,425">
+            <ComboBoxItem>
+                <StackPanel>
+                    <Button Name="BtnNext" Content="Переход далее" Click="BtnNext_Click" Style="{StaticResource EditBtn}"
+                        HorizontalAlignment="Left" Margin="5" VerticalAlignment="Bottom"/>
+                    <Button Name="BtnBack" Content="Вернуться" Click="BtnBack_Click" Style="{StaticResource EditBtn}"
+                        HorizontalAlignment="Right" Margin="5" VerticalAlignment="Bottom"/>
+                </StackPanel>
+            </ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>

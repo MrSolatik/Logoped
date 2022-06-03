@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Windows;
 
+
 namespace Logoped
 {
-    /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -14,6 +12,8 @@ namespace Logoped
 
             AppConnect.model0db = new LogopedCabEntities1();
             FrameClass.framsus = MainFrame;
+
+            //RechevayKarta1.ItemsSource = new LogopedCabEntities1.GetContext().RechevayKarta.ToList();
 
             MainFrame.Navigate(new LoginPage());
         }
